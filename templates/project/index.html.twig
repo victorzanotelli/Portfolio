@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Project index{% endblock %}
+
+{% block body %}
+    <body>
+    <header>
+        <h1>My Portfolio</h1>
+    </header>
+
+    <section class="project-section">
+        {% for project in projects %}
+            <div class="project-card">
+                <div class="project project-front">
+                    <img src="{{ project.picture }}" alt="{{ project.name }}">
+                    <h2>{{ project.name }}</h2>
+                </div>
+                <div class="project project-back">
+                    <p>{{ project.description }}</p>
+                    <a href="{{ project.gitHubLink }}" target="_blank">GitHub</a>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+    </body>
+{% endblock %}

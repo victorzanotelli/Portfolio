@@ -1,3 +1,77 @@
 body {
     background-color: skyblue;
 }
+
+/* Add styles for the project card and its front/back sides */
+.project-card {
+    width: 300px;
+    height: 400px;
+    perspective: 1000px;
+    margin: 10px;
+}
+
+.project {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: transform 0.5s;
+}
+
+.project-front {
+    transform: rotateY(0deg);
+    backface-visibility: hidden;
+    background-color: #f7f7f7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-back {
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    background-color: #f7f7f7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: rotateY(180deg);
+}
+
+.project img {
+    max-width: 100%;
+    height: auto;
+}
+
+.project h2 {
+    margin-top: 10px;
+    font-size: 1.5rem;
+}
+
+.project p {
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.project a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.project a:hover {
+    background-color: #555;
+}
+
+/* Add hover effect to flip the card */
+.project-card:hover .project-front {
+    transform: rotateY(180deg);
+}
+
+.project-card:hover .project-back {
+    transform: rotateY(0deg);
+}
