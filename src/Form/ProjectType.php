@@ -23,16 +23,16 @@ class ProjectType extends AbstractType
             ->add('date')
             ->add('technology', EntityType::class, [
                 'class' => Technology::class,
-'choice_label' => 'id',
+'choice_label' => 'name',
 'multiple' => true,
             ])
             ->add('user', EntityType::class, [
                 'class' => User::class,
-'choice_label' => 'id',
+'choice_label' => 'name',
             ])
             ->add('client', EntityType::class, [
                 'class' => Client::class,
-'choice_label' => 'id',
+'choice_label' => 'name',
             ])
         ;
     }
