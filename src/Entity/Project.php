@@ -31,13 +31,13 @@ class Project
     private Collection $technology;
 
     #[ORM\ManyToOne(inversedBy: 'projects')]
-    private ?User $user = null;
-
-    #[ORM\ManyToOne(inversedBy: 'projects')]
     private ?Client $client = null;
 
     #[ORM\Column(length: 255)]
     private ?string $date = null;
+
+    #[ORM\ManyToOne(inversedBy: 'projects')]
+    private ?User $user = null;
 
     public function __construct()
     {
@@ -121,17 +121,6 @@ class Project
         return $this;
     }
 
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): static
-    {
-        $this->user = $user;
-
-        return $this;
-    }
 
     public function getClient(): ?Client
     {
@@ -153,6 +142,18 @@ class Project
     public function setDate(string $date): static
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }
