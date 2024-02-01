@@ -2,6 +2,10 @@ body {
     background-color: skyblue;
 }
 
+
+section {
+    display: flex;
+}
 /* Add styles for the project card and its front/back sides */
 .project-card {
     width: 300px;
