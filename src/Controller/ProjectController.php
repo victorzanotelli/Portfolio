@@ -11,18 +11,17 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/project')]
 class ProjectController extends AbstractController
 {
     #[Route('/', name: 'app_project_index', methods: ['GET'])]
     public function index(ProjectRepository $projectRepository): Response
     {
-        return $this->render('project/index.html.twig', [
+        return $this->render('/home/index.html.twig', [
             'projects' => $projectRepository->findAll(),
         ]);
     }
 
-    #[Route('/new', name: 'app_project_new', methods: ['GET', 'POST'])]
+    #[Route('/project/new', name: 'app_project_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $project = new Project();
@@ -42,7 +41,7 @@ class ProjectController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_project_show', methods: ['GET'])]
+    #[Route('/project/{id}', name: 'app_project_show', methods: ['GET'])]
     public function show(Project $project): Response
     {
         return $this->render('project/show.html.twig', [
@@ -50,7 +49,7 @@ class ProjectController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_project_edit', methods: ['GET', 'POST'])]
+    #[Route('/project/{id}/edit', name: 'app_project_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Project $project, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(ProjectType::class, $project);
@@ -68,7 +67,7 @@ class ProjectController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_project_delete', methods: ['POST'])]
+    #[Route('/project/{id}', name: 'app_project_delete', methods: ['POST'])]
     public function delete(Request $request, Project $project, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$project->getId(), $request->request->get('_token'))) {

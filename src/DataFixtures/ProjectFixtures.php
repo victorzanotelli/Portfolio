@@ -18,7 +18,7 @@ class ProjectFixtures extends Fixture
         $project1->setName('Project 1');
         $project1->setDescription('Description for Project 1');
         $project1->setGitHubLink('https://github.com/project1');
-        $project1->setPicture('project1.jpg');
+        $project1->setPicture('https://picsum.photos/200');
         $project1->setDate('2022-01-25');
         // Add more properties and associations as needed
 
@@ -28,7 +28,7 @@ class ProjectFixtures extends Fixture
         $project2->setName('Project 2');
         $project2->setDescription('Description for Project 2');
         $project2->setGitHubLink('https://github.com/project2');
-        $project2->setPicture('project2.jpg');
+        $project2->setPicture('https://picsum.photos/200');
         $project2->setDate('2022-01-26');
         // Add more properties and associations as needed
 
